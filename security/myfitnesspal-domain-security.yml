@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.myfitnesspal.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 18 20:16:12 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: myfitnesspalapi.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 27 09:42:50 2026 GMT
+  hsts: false
+- host: api.myfitnesspal.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 18 20:16:12 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: myfitnesspal.com
+  dnssec: true
+  caa:
+  - 0 issuewild "letsencrypt.org"
+  - 0 issuewild "pki.goog; cansignhttpexchanges=yes"
+  - 0 issuewild "ssl.com"
+  - 0 issue "amazon.com"
+  - 0 issue "comodoca.com"
+  - 0 issue "digicert.com; cansignhttpexchanges=yes"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: myfitnesspalapi.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false

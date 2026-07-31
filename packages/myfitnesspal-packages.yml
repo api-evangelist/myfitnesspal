@@ -1,0 +1,24 @@
+generated: '2026-07-20'
+method: searched
+source: https://pypi.org/pypi/myfitnesspal/json
+note: >-
+  MyFitnessPal publishes no first-party/official client SDK, and its partner API program is closed to
+  new applicants. The libraries below are community-maintained (unofficial) and largely predate/wrap
+  the public site rather than the v2 partner API. None are marked official.
+packages:
+- language: python
+  registry: pypi
+  name: myfitnesspal
+  version: 2.1.2
+  url: https://pypi.org/project/myfitnesspal/
+  source: https://github.com/coddingtonbear/python-myfitnesspal
+  install: pip install myfitnesspal
+  official: false
+  description: Community library to access health and fitness data stored in MyFitnessPal.
+- language: javascript
+  registry: npm
+  name: myfitnesspal
+  url: https://www.npmjs.com/package/myfitnesspal
+  install: npm install myfitnesspal
+  official: false
+  description: Community Node.js client for MyFitnessPal data.

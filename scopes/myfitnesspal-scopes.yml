@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://myfitnesspalapi.com/docs/auth-example-2
+docs: https://myfitnesspalapi.com/docs/user-authentication
+schemes:
+- name: OAuth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.myfitnesspal.com/v2/oauth2/auth
+    tokenUrl: https://api.myfitnesspal.com/v2/oauth2/token
+scopes:
+- scope: diary
+  description: Read and write the user's food and exercise diary (meals and cardio/exercise entries).
+  flows: [authorizationCode]
+- scope: measurements
+  description: Read and write the user's body measurements (weight and other measured values).
+  flows: [authorizationCode]
+- scope: private-exercises
+  description: Access the user's private/custom exercise definitions.
+  flows: [authorizationCode]
+- scope: subscriptions
+  description: Create, read, and delete webhook subscriptions for user data-change notifications.
+  flows: [authorizationCode]
+notes:
+- Scope values confirmed verbatim from the documented authorization request example (scope=diary+measurements+private-exercises+subscriptions).

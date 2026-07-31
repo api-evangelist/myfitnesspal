@@ -1,0 +1,55 @@
+generated: '2026-07-20'
+method: searched
+source: https://myfitnesspalapi.com/docs
+docs: https://myfitnesspalapi.com/docs/appendix-data-structures-user
+note: Derived from the documented v2 appendix data structures and the diary/measurement/subscription resources.
+entities:
+- name: user
+  description: A MyFitnessPal user account, addressed by /v2/users/{userId}.
+  key: userId
+  sub_structures: [account, user_profile, privacy_preferences, goal_preferences, location_preferences, diary_preferences]
+- name: measurement
+  description: A body measurement (weight or other measured value) for a user.
+  key: id
+  container: measured_value
+- name: diary
+  description: A user's food and exercise diary; entries are typed (diary_meal, diary_exercise).
+  key: id
+  entry_types: [diary_meal, diary_exercise]
+- name: exercise
+  description: An exercise definition (including private/custom exercises) referenced by exercise diary entries.
+  key: id
+- name: nutritional_contents
+  description: Nutrition facts attached to food/meal diary entries.
+- name: subscription
+  description: A webhook subscription registering a callback for a user's data-change notifications.
+  key: id
+relationships:
+- from: measurement
+  to: user
+  type: belongs_to
+  via: user_id
+- from: diary
+  to: user
+  type: belongs_to
+  via: user_id
+- from: diary
+  to: exercise
+  type: has_one
+  via: exercise
+  applies_to: diary_exercise
+- from: diary
+  to: nutritional_contents
+  type: has_one
+  via: nutritional_contents
+  applies_to: diary_meal
+- from: subscription
+  to: user
+  type: has_many
+  via: user_id
+- from: user
+  to: measurement
+  type: has_many
+- from: user
+  to: diary
+  type: has_many

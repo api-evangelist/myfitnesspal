@@ -1,0 +1,14 @@
+{
+  "repo": "myfitnesspal",
+  "feeds": [
+    {
+      "source": "https://myfitnesspalapi.com/docs",
+      "feed_url": "https://myfitnesspalapi.com/docs",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-07-25T15:00:33Z"
+}

@@ -1,9 +1,27 @@
 aid: myfitnesspal
 name: MyFitnessPal
-description: 'MyFitnessPal is a company surfaced as a portfolio company of accel, bond-capital and added
-  to the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'MyFitnessPal is a nutrition and fitness tracking platform built around a food diary, calorie
+  counting, a large branded-food and barcode database, exercise logging, weight and body measurements,
+  and goal setting. Its partner-facing REST API (v2, hosted at api.myfitnesspal.com) lets approved
+  applications read and write a consenting user''s diary (food and exercise), body measurements, and
+  profile, and subscribe to webhook notifications when that data changes. Access uses OAuth 2.0
+  authorization-code grants with the diary, measurements, private-exercises, and subscriptions scopes.
+  The developer program is currently closed to new applicants. This profile was surfaced as a portfolio
+  lead and enriched by the API Evangelist pipeline.'
 url: https://raw.githubusercontent.com/api-evangelist/myfitnesspal/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.myfitnesspal.com/favicon.ico
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -13,16 +31,99 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
 - Consumer
-apis: []
+- Health and Fitness
+- Nutrition
+- Fitness Tracking
+- Food Diary
+- Wellness
+- Webhooks
+- OAuth
+apis:
+- name: MyFitnessPal API v2
+  description: 'Partner REST API for reading and writing a consenting user''s food and exercise diary,
+    body measurements, and profile, plus webhook subscriptions for data-change notifications. OAuth 2.0
+    authorization-code grant; JSON over HTTPS; all calls prefixed with /v2/.'
+  humanURL: https://myfitnesspalapi.com/docs
+  baseURL: https://api.myfitnesspal.com/v2
+  tags:
+  - Diary
+  - Measurements
+  - Exercises
+  - Users
+  - Webhooks
+  properties:
+  - type: Documentation
+    url: https://myfitnesspalapi.com/docs
+  - type: APIReference
+    url: https://myfitnesspalapi.com/docs
+  - type: Authentication
+    url: authentication/myfitnesspal-authentication.yml
+  - type: OAuthScopes
+    url: scopes/myfitnesspal-scopes.yml
+  - type: ErrorCatalog
+    url: errors/myfitnesspal-error-codes.yml
+  - type: Conventions
+    url: conventions/myfitnesspal-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/myfitnesspal-lifecycle.yml
+  - type: Webhooks
+    url: asyncapi/myfitnesspal-notifications-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/myfitnesspal-notifications-asyncapi.yml
+  - type: MCPServer
+    url: mcp/myfitnesspal-mcp.yml
+  - type: DataModel
+    url: data-model/myfitnesspal-data-model.yml
+  - type: Conformance
+    url: conformance/myfitnesspal-conformance.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1
 common:
 - type: Website
   url: http://www.myfitnesspal.com
+- type: DeveloperPortal
+  url: https://myfitnesspalapi.com
+- type: Documentation
+  url: https://myfitnesspalapi.com/docs
+- type: APIReference
+  url: https://myfitnesspalapi.com/docs
+- type: Blog
+  url: https://blog.myfitnesspal.com
+- type: Support
+  url: https://support.myfitnesspal.com
+- type: Pricing
+  url: https://www.myfitnesspal.com/premium
+- type: SignUp
+  url: https://www.myfitnesspal.com/account/create
+- type: TermsOfService
+  url: https://www.myfitnesspal.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.myfitnesspal.com/privacy-policy
+- type: SecurityTxt
+  url: well-known/myfitnesspal-security.txt
+- type: WellKnown
+  url: well-known/myfitnesspal-well-known.yml
+- type: Security
+  url: https://bugcrowd.com/engagements/myfitnesspal-mbb
+- type: VulnerabilityDisclosure
+  url: security/myfitnesspal-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/myfitnesspal-domain-security.yml
+- type: Packages
+  url: packages/myfitnesspal-packages.yml
+- type: LLMsTxt
+  url: llms/myfitnesspal-llms.txt

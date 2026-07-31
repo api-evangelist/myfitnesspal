@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://myfitnesspalapi.com/docs/versioning
+versioning:
+  scheme: uri-path
+  current: v2
+  base_path: /v2/
+  docs: https://myfitnesspalapi.com/docs/versioning
+  notes: A v1-to-v2 migration guide is published (appendix-migrate-* pages); v2 is the current version.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support is documented.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+program_status:
+  developer_program: closed-to-new-applicants
+  notes: "The developer portal states: 'We are not accepting requests for API access at this time.'"
+deprecated_operations: []

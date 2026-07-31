@@ -1,0 +1,78 @@
+asyncapi: 3.0.0
+x-apievangelist:
+  generated: '2026-07-20'
+  method: generated
+  source: https://myfitnesspalapi.com/docs/subscription-request-body
+  note: >-
+    Generated faithfully from MyFitnessPal's documented webhook (subscription) notification payload.
+    MyFitnessPal does not publish an AsyncAPI document; this captures the documented event surface so it
+    can be scored and browsed. The provider delivers change notifications via HTTP POST to a
+    partner-registered callback URL.
+info:
+  title: MyFitnessPal Subscription Notifications
+  version: v2
+  description: >-
+    Webhook notifications delivered by MyFitnessPal to partner applications when a subscribed user's
+    data changes. A single POST may batch notifications about multiple items belonging to multiple
+    users (up to thousands of items). Partners should acknowledge quickly (202 Accepted) and process
+    asynchronously. Subscriptions are managed via the /v2/subscription resource and require the
+    `subscriptions` OAuth scope.
+  externalDocs:
+    url: https://myfitnesspalapi.com/docs/subscription-design
+servers:
+  partner-callback:
+    host: your.partner.domain.com
+    protocol: https
+    description: Partner-hosted HTTPS endpoint registered via POST /v2/subscription that receives notifications.
+channels:
+  notifications:
+    address: /
+    description: The partner callback endpoint receiving batched data-change notifications.
+    messages:
+      DataChangeNotification:
+        $ref: '#/components/messages/DataChangeNotification'
+operations:
+  receiveNotifications:
+    action: receive
+    channel:
+      $ref: '#/channels/notifications'
+    summary: Receive a batch of user data-change notifications.
+    messages:
+    - $ref: '#/components/messages/DataChangeNotification'
+components:
+  messages:
+    DataChangeNotification:
+      name: DataChangeNotification
+      title: Data-change notification batch
+      summary: An array of item notifications, each identifying a changed resource and its owning user.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/NotificationBatch'
+  schemas:
+    NotificationBatch:
+      type: array
+      items:
+        $ref: '#/components/schemas/Notification'
+    Notification:
+      type: object
+      required: [user_id, item_type, item_url]
+      properties:
+        user_id:
+          type: string
+          description: Identifier of the user whose data changed.
+        item_type:
+          type: string
+          description: The type of resource that changed.
+          enum:
+          - measurements
+          - diary_exercise
+          - diary_meal
+          - user_info
+        item_url:
+          type: string
+          format: uri
+          description: The v2 API URL of the changed item (or a query URL to fetch the changes).
+      example:
+        user_id: 9w48rhg489hg48h2fw4
+        item_type: measurements
+        item_url: https://api.myfitnesspal.com/v2/measurements/4398hvg4klvi4nhg

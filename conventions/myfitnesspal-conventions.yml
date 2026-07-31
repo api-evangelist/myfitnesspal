@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: https://myfitnesspalapi.com/docs
+authentication:
+  style: oauth2-bearer
+  scopes: [diary, measurements, private-exercises, subscriptions]
+  required_headers: [mfp-client-id]
+  optional_headers: [mfp-user-id]
+  see: authentication/myfitnesspal-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  base_path: /v2/
+  docs: https://myfitnesspalapi.com/docs/versioning
+content_type:
+  request: application/json
+  response: application/json
+  docs: https://myfitnesspalapi.com/docs/content-type
+identifiers:
+  note: Objects are addressed by opaque string identifiers; clients may assign ids on create, subject to server validation (see duplicate-id / invalid-id errors).
+  docs: https://myfitnesspalapi.com/docs/identifiers
+field_selection:
+  supported: true
+  param: fields
+  note: A `fields` query parameter controls which fields are returned in the response body.
+  docs: https://myfitnesspalapi.com/docs/get-request-query-param
+collection_requests:
+  supported: true
+  docs: https://myfitnesspalapi.com/docs/collection-requests
+error_envelope:
+  fields: [error, error_description, error_uri, error_details]
+  localized: true
+  see: errors/myfitnesspal-error-codes.yml
+rate_limiting:
+  signaled: true
+  status: 429
+  note: HTTP 429 Too Many Requests is returned when the client exceeds the request rate; specific limits/headers are not published in the docs.
+idempotency:
+  documented: false
+  note: No idempotency-key mechanism is documented; creates use client-assigned ids with uniqueness-violation on conflict.
+webhooks:
+  supported: true
+  see: asyncapi/myfitnesspal-notifications-asyncapi.yml

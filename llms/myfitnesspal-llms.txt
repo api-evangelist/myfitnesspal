@@ -1,0 +1,38 @@
+# MyFitnessPal
+
+> MyFitnessPal is a nutrition and fitness tracking platform (food diary, calorie counting, branded-food and barcode database, exercise logging, body measurements, goal setting). Its partner REST API (v2, api.myfitnesspal.com) lets approved applications read/write a consenting user's diary, measurements, and profile, and subscribe to webhook notifications. Authentication is OAuth 2.0 (authorization-code grant) with the diary, measurements, private-exercises, and subscriptions scopes. The developer program is currently closed to new applicants.
+
+## APIs
+- [MyFitnessPal API v2 docs](https://myfitnesspalapi.com/docs): Partner REST API reference (base https://api.myfitnesspal.com/v2)
+- [Versioning](https://myfitnesspalapi.com/docs/versioning): URI-path versioning; current version v2
+- [User authentication](https://myfitnesspalapi.com/docs/user-authentication): OAuth 2.0 authorization-code grant
+- [Partner authentication](https://myfitnesspalapi.com/docs/partner-authentication): Client ID / Client Secret and mfp-client-id header
+
+## Resources
+- Users: GET/PATCH /v2/users/{userId}
+- Measurements: GET/POST /v2/measurements
+- Diary (food + exercise): GET/POST/PATCH/DELETE /v2/diary
+- Exercises: GET /v2/exercises
+- Subscriptions (webhooks): GET/POST/DELETE /v2/subscription
+
+## Specs
+- [Authentication profile](authentication/myfitnesspal-authentication.yml)
+- [OAuth scopes](scopes/myfitnesspal-scopes.yml)
+- [Error codes](errors/myfitnesspal-error-codes.yml)
+- [Conventions](conventions/myfitnesspal-conventions.yml)
+- [Lifecycle](lifecycle/myfitnesspal-lifecycle.yml)
+- [Webhook notifications (AsyncAPI)](asyncapi/myfitnesspal-notifications-asyncapi.yml)
+- [Data model](data-model/myfitnesspal-data-model.yml)
+- [MCP candidate tools](mcp/myfitnesspal-mcp.yml)
+
+## Docs
+- [Developer portal](https://myfitnesspalapi.com)
+- [Error responses](https://myfitnesspalapi.com/docs/error-responses)
+- [Subscription design](https://myfitnesspalapi.com/docs/subscription-design)
+- [Security policy (Bugcrowd)](https://bugcrowd.com/engagements/myfitnesspal-mbb)
+
+## Optional
+- [Website](https://www.myfitnesspal.com)
+- [Blog](https://blog.myfitnesspal.com)
+- [Support](https://support.myfitnesspal.com)
+- [Premium / pricing](https://www.myfitnesspal.com/premium)

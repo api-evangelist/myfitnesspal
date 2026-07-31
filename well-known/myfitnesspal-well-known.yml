@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+hosts:
+- host: https://api.myfitnesspal.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: myfitnesspal-security.txt
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+- host: https://www.myfitnesspal.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: myfitnesspal-security.txt
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+notes:
+- 403 responses are Cloudflare bot-mitigation blocks, not confirmations that the document exists.
+- security.txt is served identically on api.myfitnesspal.com and www.myfitnesspal.com (canonical www).

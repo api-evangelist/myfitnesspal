@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: derived
+source: https://myfitnesspalapi.com/docs
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 authorization-code grant with /v2/oauth2/auth, /token, /revoke endpoints and named scopes.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect discovery or id_token documented; OAuth is used for authorization only.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom {error, error_description, error_uri, error_details} envelope, not application/problem+json.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset/Deprecation header support documented.
+- id: webhooks
+  conforms: true
+  evidence: HTTP POST change notifications via the /v2/subscription resource.
+- id: rest-json
+  conforms: true
+  evidence: RESTful JSON over HTTPS using standard GET/POST/PATCH/DELETE methods with conventional 2xx/4xx/5xx status codes.

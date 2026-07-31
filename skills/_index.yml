@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: https://myfitnesspalapi.com/docs
+note: >-
+  Grounded in MyFitnessPal's documented v2 REST operations (no OpenAPI is published; operations are the
+  documented HTTP method+path surface). Steps use only documented resources, scopes, headers, and error
+  behavior.
+skills:
+- file: myfitnesspal-log-diary-entry.md
+  name: Log a food or exercise entry to a user's diary
+  api: https://api.myfitnesspal.com/v2
+  operations: [POST /v2/diary, GET /v2/diary, PATCH /v2/diary]
+- file: myfitnesspal-subscribe-to-user-updates.md
+  name: Subscribe to a user's data-change webhooks and process notifications
+  api: https://api.myfitnesspal.com/v2
+  operations: [POST /v2/subscription, GET /v2/subscription, DELETE /v2/subscription]

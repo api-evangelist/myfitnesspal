@@ -1,0 +1,60 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: https://myfitnesspalapi.com/docs
+note: >-
+  No official MyFitnessPal MCP server is published. This is a candidate tool list derived from the
+  documented v2 REST operations, for use if/when an MCP wrapper is built. MyFitnessPal's developer
+  program is currently closed to new applicants.
+server:
+  name: myfitnesspal
+  transport: http
+tools:
+- name: get_user
+  description: Retrieve a user's profile and preferences.
+  source_operation: GET https://api.myfitnesspal.com/v2/users/{userId}
+  scope: diary
+- name: update_user
+  description: Update a user's profile fields.
+  source_operation: PATCH https://api.myfitnesspal.com/v2/users/{userId}
+  scope: diary
+- name: list_measurements
+  description: Retrieve a user's body measurements.
+  source_operation: GET https://api.myfitnesspal.com/v2/measurements
+  scope: measurements
+- name: create_measurement
+  description: Record a new body measurement for a user.
+  source_operation: POST https://api.myfitnesspal.com/v2/measurements
+  scope: measurements
+- name: get_diary
+  description: Retrieve a user's food and exercise diary entries.
+  source_operation: GET https://api.myfitnesspal.com/v2/diary
+  scope: diary
+- name: create_diary_entry
+  description: Create a food or exercise diary entry.
+  source_operation: POST https://api.myfitnesspal.com/v2/diary
+  scope: diary
+- name: update_diary_entry
+  description: Update an existing diary entry.
+  source_operation: PATCH https://api.myfitnesspal.com/v2/diary
+  scope: diary
+- name: delete_diary_entry
+  description: Delete a diary entry.
+  source_operation: DELETE https://api.myfitnesspal.com/v2/diary
+  scope: diary
+- name: list_exercises
+  description: Retrieve exercise definitions available for diary logging.
+  source_operation: GET https://api.myfitnesspal.com/v2/exercises
+  scope: private-exercises
+- name: create_subscription
+  description: Register a webhook subscription for user data-change notifications.
+  source_operation: POST https://api.myfitnesspal.com/v2/subscription
+  scope: subscriptions
+- name: get_subscription
+  description: Retrieve current webhook subscriptions.
+  source_operation: GET https://api.myfitnesspal.com/v2/subscription
+  scope: subscriptions
+- name: delete_subscription
+  description: Remove a webhook subscription.
+  source_operation: DELETE https://api.myfitnesspal.com/v2/subscription
+  scope: subscriptions

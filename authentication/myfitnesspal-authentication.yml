@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: searched
+source: https://myfitnesspalapi.com/docs
+docs: https://myfitnesspalapi.com/docs/user-authentication
+summary:
+  types: [oauth2]
+  oauth2_flows: [authorizationCode]
+  client_auth: client_id + client_secret (partner credentials)
+  required_headers: [mfp-client-id]
+  optional_headers: [mfp-user-id]
+schemes:
+- name: OAuth2
+  type: oauth2
+  description: >-
+    OAuth 2.0 authorization-code grant. A partner application redirects the user to the MyFitnessPal
+    authorization endpoint, receives an authorization code on consent, and exchanges it at the token
+    endpoint for an access token and refresh token. Access tokens authorize subsequent /v2/ requests;
+    refresh tokens obtain new access tokens on expiry. Tokens can be revoked.
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.myfitnesspal.com/v2/oauth2/auth
+    tokenUrl: https://api.myfitnesspal.com/v2/oauth2/token
+    revocationUrl: https://api.myfitnesspal.com/v2/oauth2/revoke
+    scopes:
+    - diary
+    - measurements
+    - private-exercises
+    - subscriptions
+  sources: [https://myfitnesspalapi.com/docs/auth-example-2]
+- name: PartnerCredentials
+  type: client
+  description: >-
+    Partners are issued a Client ID (public, identifies the partner application) and a Client Secret
+    (private, must never be transmitted in plaintext). The Client ID is passed on every request in the
+    mfp-client-id HTTP header; the optional mfp-user-id header scopes a request to a specific user.
+  contact: partners@myfitnesspal.com
+notes:
+- The developer program is currently closed to new applicants ("We are not accepting requests for API access at this time.").
+- No OpenAPI/Swagger specification is published; this profile is derived from the human docs at myfitnesspalapi.com/docs.

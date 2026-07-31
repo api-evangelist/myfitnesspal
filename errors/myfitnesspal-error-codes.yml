@@ -1,0 +1,70 @@
+generated: '2026-07-20'
+method: searched
+source: https://myfitnesspalapi.com/docs/appendix-error-codes
+docs: https://myfitnesspalapi.com/docs/error-responses
+envelope:
+  description: >-
+    Error responses (HTTP 4xx, and 5xx where possible) return a JSON object with an application error
+    code, a localized description, and optional supplementary detail.
+  fields:
+    error: A code representing the type of application error that was encountered.
+    error_description: A localized message describing the error to the user.
+    error_uri: Optional reference URI with additional information about the error type.
+    error_details: Optional key-value map providing supplementary details related to the errors.
+  format: custom-json
+error_codes:
+- code: duplicate-id
+  meaning: The client attempted to assign to a new object a unique identifier that is already used.
+- code: failed-validation
+  meaning: Validation error on the request.
+- code: internal
+  meaning: Internal server error.
+- code: invalid-id
+  meaning: The client attempted to assign to a new object a unique identifier that the server has deemed unacceptable.
+- code: malformed-body
+  meaning: Failed to parse request body.
+- code: malformed-header
+  meaning: Failed to interpret the value of a required HTTP header.
+- code: measurement/101
+  meaning: Failed to retrieve measurement because the measurement type is not supported.
+- code: method-not-allowed
+  meaning: HTTP method is not allowed.
+- code: missing-body
+  meaning: Request body expected.
+- code: missing-header
+  meaning: Missing a required HTTP header.
+- code: not-found
+  meaning: The requested resource couldn't be found in the server.
+- code: uniqueness-violation
+  meaning: Error returned when trying to create a resource and uniqueness constraint is violated.
+- code: unsupported-content-type
+  meaning: Unsupported content type.
+- code: unsupported-diary-type
+  meaning: The requested diary entry type is unsupported.
+http_status_codes:
+- status: 200
+  meaning: OK. Typically in response to GET requests; indicates a successful request.
+- status: 201
+  meaning: Created. Typically in response to POST requests; indicates successful creation of a new resource.
+- status: 202
+  meaning: Accepted. The request succeeded but processing has not been completed.
+- status: 204
+  meaning: No Content. Typically in response to PATCH and DELETE; the request completed.
+- status: 302
+  meaning: Found. The requested resource temporarily lives under a different URL.
+- status: 400
+  meaning: Bad Request. The request has malformed syntax.
+- status: 401
+  meaning: Unauthorized. The request requires user authentication, or the access token is invalid/expired.
+- status: 404
+  meaning: Not Found. The requested resource was not found.
+- status: 405
+  meaning: Method Not Allowed. The HTTP method is not permitted on the resource.
+- status: 422
+  meaning: Unprocessable Entity. POST/PATCH/PUT content failed validation.
+- status: 429
+  meaning: Too Many Requests. The client has sent too many requests in a given amount of time.
+- status: 500
+  meaning: Internal Server Error. The server encountered an unexpected error.
+- status: 503
+  meaning: Service Unavailable. The server is temporarily unavailable.
