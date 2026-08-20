@@ -40,6 +40,16 @@ tags:
 - Fitness Tracking
 - Food Diary
 - Wellness
+- Webhook
+- Authentication
+tags_raw:
+- Company
+- Consumer
+- Health and Fitness
+- Nutrition
+- Fitness Tracking
+- Food Diary
+- Wellness
 - Webhooks
 - OAuth
 apis:
@@ -50,6 +60,12 @@ apis:
   humanURL: https://myfitnesspalapi.com/docs
   baseURL: https://api.myfitnesspal.com/v2
   tags:
+  - Diary
+  - Measurements
+  - Exercises
+  - User
+  - Webhook
+  tags_raw:
   - Diary
   - Measurements
   - Exercises
