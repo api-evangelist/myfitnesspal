@@ -9,6 +9,17 @@ description: 'MyFitnessPal is a nutrition and fitness tracking platform built ar
   The developer program is currently closed to new applicants. This profile was surfaced as a portfolio
   lead and enriched by the API Evangelist pipeline.'
 url: https://raw.githubusercontent.com/api-evangelist/myfitnesspal/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
